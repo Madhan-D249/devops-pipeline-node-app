@@ -65,10 +65,20 @@
       display: none;
     }
 
-    .heart-count {
-      margin-top: 10px;
-      font-size: 1em;
-      color: #555;
+    .hearts-container {
+      margin-top: 15px;
+      font-size: 1.5em;
+      line-height: 1.4;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    .green-button {
+      background-color: #4CAF50;
+    }
+
+    .green-button:hover {
+      background-color: #3c9e42;
     }
   </style>
 </head>
@@ -78,20 +88,20 @@
     <p>This is a static website deployed using GitHub Pages as part of my DevOps project.</p>
 
     <button class="button" onclick="giveHeart()">❤️ Give a Heart</button>
-    <div class="heart-count" id="heartCount">Hearts: 0</div>
+    <div class="hearts-container" id="heartsContainer"></div>
 
-    <button class="button" style="background-color: #4CAF50;" onclick="sayThankYou()">💬 Say Thank You</button>
+    <button class="button green-button" onclick="sayThankYou()">💬 Say Thank You</button>
     <div class="thank-you" id="thankYouMsg">Thank you! 😊</div>
 
     <div class="footer">Made with ❤️ by Madhan-D249</div>
   </div>
 
   <script>
-    let hearts = 0;
-
     function giveHeart() {
-      hearts++;
-      document.getElementById('heartCount').innerText = 'Hearts: ' + hearts;
+      const heartContainer = document.getElementById('heartsContainer');
+      const heart = document.createElement('span');
+      heart.innerText = '❤️ ';
+      heartContainer.appendChild(heart);
     }
 
     function sayThankYou() {
