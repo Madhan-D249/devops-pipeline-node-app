@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
   <title>Welcome to My GitHub Pages Site</title>
   <style>
     body {
@@ -42,13 +41,62 @@
       font-size: 0.9em;
       color: #888;
     }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #ff4d4d;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #e60000;
+    }
+
+    .thank-you {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: green;
+      display: none;
+    }
+
+    .heart-count {
+      margin-top: 10px;
+      font-size: 1em;
+      color: #555;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Hello from GitHub Pages 👋</h1>
     <p>This is a static website deployed using GitHub Pages as part of my DevOps project.</p>
+
+    <button class="button" onclick="giveHeart()">❤️ Give a Heart</button>
+    <div class="heart-count" id="heartCount">Hearts: 0</div>
+
+    <button class="button" style="background-color: #4CAF50;" onclick="sayThankYou()">💬 Say Thank You</button>
+    <div class="thank-you" id="thankYouMsg">Thank you! 😊</div>
+
     <div class="footer">Made with ❤️ by Madhan-D249</div>
   </div>
+
+  <script>
+    let hearts = 0;
+
+    function giveHeart() {
+      hearts++;
+      document.getElementById('heartCount').innerText = 'Hearts: ' + hearts;
+    }
+
+    function sayThankYou() {
+      document.getElementById('thankYouMsg').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
